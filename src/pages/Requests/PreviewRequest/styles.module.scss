@@ -1,0 +1,156 @@
+@import "../../../sass/main.scss";
+
+.container {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 1px;
+  padding: 3rem 4rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 3rem;
+
+  @include md {
+    margin-top: 1.8rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
+    margin-bottom: 20px;
+    gap: 2rem 4rem;
+    padding-bottom: 10px;
+    justify-content: center;
+
+    & li:nth-of-type(3) {
+      & p:last-of-type {
+        padding-bottom: 2rem;
+      }
+    }
+
+    &.grid1 {
+      & li:nth-of-type(even) {
+        @include mobileFirst(552) {
+          text-align: right;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $grey;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+
+      letter-spacing: 1px;
+      color: $grey;
+    }
+
+    p {
+      color: $black;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.3rem;
+
+      &.amount {
+        font-size: 1.7rem;
+        color: $black;
+      }
+    }
+
+    .group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bill {
+      h3 {
+        color: $black;
+        font-size: 1.7rem;
+        font-weight: 600;
+      }
+    }
+
+    .status {
+      p {
+        color: $error;
+        font-weight: bold;
+      }
+    }
+  }
+
+  ul.grid2 {
+    grid-template-columns: repeat(auto-fit, minMax(100px, 1fr));
+    gap: 2rem 0;
+
+    h2 {
+      border-bottom: $thin-grey-border;
+      display: inline-block;
+      width: 100%;
+      padding-right: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    p {
+      padding-right: 1.5rem;
+    }
+
+    li:last-of-type {
+      @include mobileFirst(552) {
+        text-align: right;
+      }
+    }
+  }
+
+  .summary {
+    width: 50%;
+
+    @include mobileFirst(552) {
+      margin-left: auto;
+    }
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      border-top: $thin-grey-border;
+
+      &:last-of-type {
+        border-bottom: $thin-grey-border;
+
+        p:last-of-type {
+          color: $primary;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 600px;
+
+  @include md {
+    flex-direction: row;
+
+    button:not(:last-child) {
+      margin-right: 4%;
+    }
+  }
+
+  button {
+    margin-bottom: 20px;
+  }
+}

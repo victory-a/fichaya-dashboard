@@ -1,0 +1,7 @@
+@import "../../sass/main.scss";
+
+.container {
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 70px - 12rem);
+}

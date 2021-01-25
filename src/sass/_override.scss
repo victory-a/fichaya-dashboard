@@ -1,0 +1,78 @@
+// override for date picker styles
+div.DayPickerInput {
+  width: 100%;
+}
+
+div.DayPicker {
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+div.DayPicker-Day {
+  border-radius: 10px;
+}
+
+div.DayPicker-Day {
+  border-radius: 5px;
+}
+
+.DayPicker-Day--outside {
+  color: #fff;
+  cursor: default;
+}
+
+.DayPicker:not(.DayPicker--interactionDisabled)
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  color: $primary !important;
+}
+
+div.DayPicker-Day.DayPicker-Day--selected,
+div.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: $primary !important;
+}
+
+div.DayPicker-Day.DayPicker-Day--selected,
+div.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: $primary;
+}
+
+// override for dropdown
+.dropdown {
+  color: fff;
+  .react-dropd {
+    width: 100%;
+  }
+
+  .dropd {
+    font-size: 1.6rem;
+  }
+  .dropd-toggle {
+    height: 50px;
+  }
+
+  button {
+    width: 100% !important;
+    border-radius: 5px;
+    background: $secondary;
+
+    svg {
+      color: $white !important;
+      font-size: 1.6rem;
+    }
+    .dropd-current {
+      color: $white !important;
+    }
+  }
+}
+
+// override dependent amount input
+.dependent {
+  input {
+    background-color: #ededed !important;
+    border-color: #ededed !important;
+
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+}

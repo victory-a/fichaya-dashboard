@@ -1,0 +1,62 @@
+@import "../../../sass/main.scss";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(300px, 1fr));
+  gap: 0 3rem;
+  width: 100%;
+}
+
+.container {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 1px;
+  padding: 3rem 4rem;
+  border-radius: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  @include md {
+    margin-top: 1.8rem;
+  }
+}
+
+.inlineFields {
+  display: flex;
+  flex-direction: column;
+
+  @include lg {
+    flex-direction: row;
+
+    > div {
+      width: 100%;
+    }
+
+    div:not(:last-child),
+    button:not(:last-child) {
+      margin-right: 4%;
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-top: 3rem;
+
+  @include lg {
+    width: 49%;
+    flex-direction: row;
+
+    // div:not(:last-child),
+    button:not(:last-child) {
+      margin-right: 4%;
+    }
+  }
+
+  button {
+    margin-bottom: 20px;
+  }
+}
+

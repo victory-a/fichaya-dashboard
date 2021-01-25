@@ -1,0 +1,59 @@
+@import "../../../sass/main.scss";
+
+.container {
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 1px;
+  padding: 3rem 4rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 3rem;
+
+  @include md {
+    margin-top: 1.8rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
+    margin-bottom: 20px;
+    gap: 2rem 4rem;
+    padding-bottom: 10px;
+    border-bottom: $thin-grey-border;
+
+    & li:first-of-type {
+      p {
+        font-weight: 500;
+      }
+    }
+  }
+
+  li {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: $primary;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+  }
+
+  .dropdownContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    @include mobileFirst(768) {
+      margin-left: auto;
+      margin-right: 0;
+      width: calc(100% / 3);
+
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "../sass/main.scss";
+
+.container {
+  margin: 3rem auto;
+  width: 90%;
+
+  @include md {
+    margin: 5rem auto;
+  }
+}

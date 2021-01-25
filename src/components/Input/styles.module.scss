@@ -1,0 +1,47 @@
+@import "../../sass/main.scss";
+
+.container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 2rem;
+
+  label {
+    display: block;
+    letter-spacing: 0.1px;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: $black;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    outline: none;
+    position: relative;
+    border: 1px solid $gold;
+    border-radius: 0.25rem;
+    color: $grey;
+    background-color: $white;
+    font-size: 1.8rem;
+    letter-spacing: 0.1px;
+    font-family: $default-font-family;
+    transition: border-color 0.25s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus {
+      box-shadow: 1px 0px .8px .8px $gold;
+    }
+  }
+
+  &.error {
+    input {
+      border-color: $error;
+    }
+  }
+}
+
+span {
+  color: $error;
+  font-size: 1.1rem;
+}
