@@ -1,28 +1,19 @@
 import React from "react";
 import { useRequest } from "..";
+import dayjs from "dayjs";
 
+import Button, { OutlineButton } from "components/Button";
+import { phoneCountryCodeFormat } from "utils/formatMobile";
+import doToast from "utils/doToast";
 import styles from "./styles.module.scss";
 import { ReactComponent as FichayaLogo } from "assets/fichaya-logo.svg";
-import Button, { OutlineButton } from "components/Button";
 
 const PreviewRequest = () => {
   const { state, dispatch } = useRequest();
 
-  // TODO: Read data from state, format date where necessary
-  const data = {
-    name: "Spleet Nigeria Limited",
-    email: "info@spleet.ng",
-    mobile: "+2348140564969",
-    address: "51, Iwaya Road, Onike Yaba",
-    invoiceNumber: "",
-    VAT: 7.5,
-    description: "5 Bedroom Duplex post-con cleaning",
-    serviceAmount: 48375,
-    issueDate: "October 8, 2020",
-    dueDate: "October 11, 2020"
-  };
-
-  state.VATAmount = (Number(state?.serviceAmount) * Number(state?.VAT / 100)).toFixed(2);
+  const VATAmount = ((Number(state?.serviceAmount) * Number(state?.VAT)) / 100).toFixed(2);
+  const totalAmount = Number(state?.VAT) + Number(state?.serviceAmount);
+  const formattedMobile = phoneCountryCodeFormat(state.mobile);
 
   return (
     <>
@@ -52,7 +43,7 @@ const PreviewRequest = () => {
             </div>
             <div className="created">
               <h2>created</h2>
-              <p>{data?.issueDate}</p>
+              <p>{state?.issueDate ? dayjs(state.issueDate).format("MMMM DD, YYYY") : ""}</p>
             </div>
           </li>
 
@@ -61,13 +52,13 @@ const PreviewRequest = () => {
             <h3>{state?.name}</h3>
             <p>{state?.email}</p>
             <p>{state?.address}</p>
-            <p>{state?.mobile}</p>
+            <p>{`+${formattedMobile}`}</p>
           </li>
 
           <li className={styles.group}>
             <div>
               <h2>due</h2>
-              <h3>{data?.dueDate}</h3>
+              <p>{state?.dueDate ? dayjs(state.dueDate).format("MMMM DD, YYYY") : ""}</p>
             </div>
 
             <div>
@@ -103,11 +94,11 @@ const PreviewRequest = () => {
           </div>
           <div>
             <p>{`VAT (${state?.VAT} %)`}</p>
-            <p>{`NGN ${state?.VATAmount}`}</p>
+            <p>{`NGN ${VATAmount}`}</p>
           </div>
           <div>
             <p>TOTAL</p>
-            <p>{`NGN ${Number(state?.VATAmount) + Number(state?.serviceAmount)}`}</p>
+            <p>{`NGN ${totalAmount}`}</p>
           </div>
         </div>
       </div>
@@ -121,7 +112,9 @@ const PreviewRequest = () => {
         >
           GO BACK
         </OutlineButton>
-        <Button>SEND TO CUSTOMER</Button>
+        <Button type="button" onClick={() => doToast("Sent Successfully!", "success")}>
+          SEND TO CUSTOMER
+        </Button>
       </div>
     </>
   );

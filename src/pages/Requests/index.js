@@ -14,7 +14,7 @@ export const initialState = {
   mobile: "",
   address: "",
   invoiceNumber: "",
-  VAT: 0,
+  VAT: 7.5,
   description: "",
   serviceAmount: ""
 };
